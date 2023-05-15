@@ -1,32 +1,38 @@
-name: maven-build
-on: push
+name: maven
+env:
+  project_id: db-cicdpipeline-wave-2
+on:
+  push:
+    branches: 
+    - main
+    - feature/*
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
- build-package:
-  runs-on: ubuntu-latest
-  steps:
-   - name: checkout code in repo
-     uses: actions/checkout@v3
-   - name: setup java sdk
-     uses: actions/setup-java@v3
-     with:
-      java-version: 1.8
-   - name: check maven version
-     run: mvn -v
-   - name: compile java file in main
-     run: mvn compile
-   - name: test code with test cases
-     run: | 
-      mvn test-compile
-      mvn test
-   - name: packaging the maven code into jar file
-     run: mvn package
-   - name: listing file in directory
-     run: ls -a
-   - name: to target, list files, execute jar
-     run: |
-      cd target
-      ls -a
-      echo "executing jar file"
-      java -jar example-1.0-SNAPSHOT.jar
-   - name: check git configurations
-     run: git config -l
+ maven:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: Auth Google cloud
+        uses: google-github-actions/auth@v1
+        with:
+          token_format: 'access_token'
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.SA }}
+      - name: setup JDK 11
+        uses: actions/setup-java@v3
+        with:
+           java-version: '11'
+           distribution: 'temurin'
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+      - name: to target, list files, execute jar
+        run: |
+          cd target
+          ls -a
+          echo "executing jar file"
+          java -jar wave-app-0.1.0-SNAPSHOT.jar
