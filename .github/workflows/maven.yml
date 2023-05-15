@@ -13,8 +13,10 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: check maven version
+      run: mvn -v
+    - name: compile java file in main
+      run: mvn compile
     - name: test code with test cases
       run: | 
        mvn test-compile
@@ -23,5 +25,13 @@ jobs:
       run: mvn package
     - name: listing file in directory
       run: ls -a
-    
+    - name: to target, list files, execute jar
+      run: |
+       cd target
+       ls -a
+       echo "executing jar file"
+       java -jar dag_script-1.0.0-SNAPSHOT.jar
+    - name: check git configurations
+      run: git config -l
+
  
