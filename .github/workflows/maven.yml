@@ -30,7 +30,7 @@ jobs:
        cd target
        ls -a
        echo "executing jar file"
-       java -jar dag_script-1.0.0-SNAPSHOT.jar
+       java -jar Example-1.0-SNAPSHOT.jar
     - name: check git configurations
       run: git config -l
 
