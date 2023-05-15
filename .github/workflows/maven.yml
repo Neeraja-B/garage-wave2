@@ -9,7 +9,6 @@ jobs:
    - name: setup java sdk
      uses: actions/setup-java@v3
      with:
-      node-version:'16'
       java-version: 1.8
    - name: check maven version
      run: mvn -v
