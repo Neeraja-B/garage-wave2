@@ -23,5 +23,7 @@ jobs:
       run: mvn package
     - name: listing file in directory
       run: ls -a
+    - name: check git configurations
+      run: git config -l  
     
  
