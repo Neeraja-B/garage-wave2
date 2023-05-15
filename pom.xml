@@ -32,7 +32,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>SortArray</mainClass>
+              <mainClass>example</mainClass>
             </manifest>
           </archive>
         </configuration>
