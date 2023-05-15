@@ -3,7 +3,7 @@ on: push
 jobs:
  build-node:
   runs-on: ubuntu-latest
-  container :16
+  container:node:16
   steps:
    - name: Checkout Code 
      uses: actions/checkout@v3
