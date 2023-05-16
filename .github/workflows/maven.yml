@@ -15,6 +15,16 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: test code with test cases
+      run: | 
+       mvn test-compile
+       mvn test
+    - name: packaging the maven code into jar file
+      run: mvn package
+    - name: listing file in directory
+      run: ls -a
+    - name: check git configurations
+      run: git config -l  
 
 
     
