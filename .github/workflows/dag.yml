@@ -30,5 +30,4 @@ jobs:
       uses: 'google-github-actions/upload-cloud-storage@v1'
       with:
         path: 'dags'
-        destination: 'asia-south1-composer-env-a0402fde-bucket/dags/'
-    
+        destination: 'asia-south1-composer-enviro-0a4f68b0-bucket'
