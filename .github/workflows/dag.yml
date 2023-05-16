@@ -1,33 +1,31 @@
-name: DAG
-
+name: Dag
+env:
+  project_id: db-cicdpipeline-wave-2
 on:
   push:
-    paths:
-      - 'dags/**'
-
+    branches:
+      - main
+      - feature/*
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
-  test:
+  maven:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.7'
-    - name: 'upload-files'
-      uses: 'google-github-actions/upload-cloud-storage@v1'
-      with:
-        path: 'dag.py'
-        destination: 'asia-south1-composer-env-a0402fde-bucket/dags/'
-    - name: Install Python dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements/requirements.txt
-        pip check
-    - name: Test DAGs with Pytest
-      run: |
-        pip install pytest==6.2.5
-        pushd tests || exit
-        python3 -m pytest tests.py -v || exit
-        popd || exit
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: Auth Google cloud
+        uses: google-github-actions/auth@v1
+        with:
+          token_format: 'access_token'
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.SA }}
+      - name: 'upload-files'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+          path: 'dag_script.py'
+          destination: 'asia-south1-composer-env-a0402fde-bucket/dags/'
     
