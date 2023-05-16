@@ -16,11 +16,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: to target, list files, execute jar
-      run: |
-       cd target
-       ls -a
-       echo "executing jar file"
-       java -jar Example-1.0-SNAPSHOT.jar
+
     
  
