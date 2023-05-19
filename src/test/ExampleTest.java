@@ -1,30 +1,28 @@
- import org.junit.Test;
- import static org.junit.Assert.*;
- import org.junit.Rule;
- import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-
- public class ExampleTest {
+public class ExampleTest {
 
     @Test
-    public void testProduct() {
-        Example example = new Example();
-        int a = 5, b = 10;
-        int expectedProduct = 50;
-        int actualProduct = example.getProduct(a, b);
-        assertEquals(expectedProduct, actualProduct);
+    public void compare() {
+        Basics basicTests = new Basics();
+        int value = basicTests.compare(2, 1);
+        Assertions.assertEquals(1, value);
     }
-    
- public static class WatchmanTest {
-  private static String watchedLog;
 
-  @Rule
-  public TestWatcher watchman= new TestWatcher() {
-      @Override
-      protected void failed(Throwable e, Description description) {
-          watchedLog+= description + "\n";
-      }
-  @Test
-  public void fails() {
-      fail();
-}
+    @Test
+    @DisplayName("First number is less than the second")
+    public void compare2() {
+        Basics basicTests = new Basics();
+        int value = basicTests.compare(2, 3);
+        Assertions.assertEquals(-1, value);
+    }
+
+    @Test
+    @DisplayName("First number is equal to the second")
+    public void compare3() {
+        Basics basicTests = new Basics();
+        int value = basicTests.compare(2, 2);
+        Assertions.assertEquals(0, value);
+    }
