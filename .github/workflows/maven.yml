@@ -20,7 +20,4 @@ jobs:
       mvn test
    - name: packaging the maven code into jar file
      run: mvn package
-   - name: listing file in directory
-      ls
-   - name: check git configurations
-     run: git config -l
+
