@@ -26,3 +26,4 @@ public class BasicTests {
         int value = basicTests.compare(2, 2);
         Assertions.assertEquals(0, value);
     }
+}
