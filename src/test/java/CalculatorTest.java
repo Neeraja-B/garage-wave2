@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assert.*;
+import org.junit.jupiter.api.Assert.assertEquals;
 
 public class CalculatorTest {
 
