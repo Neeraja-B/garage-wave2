@@ -8,6 +8,6 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         int expectedSum = 5;
         int actualSum = calculator.add(2, 3);
-        assertEquals(expectedSum, actualSum);
+        Assert.assertEquals(expectedSum, actualSum);
     }
 }
