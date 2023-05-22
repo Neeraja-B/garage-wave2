@@ -1,5 +1,7 @@
-name: maven-build
-on: push
+name: maven
+on: 
+  push: 
+    branches: ['feature/test']
 jobs:
  build-package:
   runs-on: ubuntu-latest
