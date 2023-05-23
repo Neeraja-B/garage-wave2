@@ -10,9 +10,13 @@ public class TestDemoClass {
     
     @Test
     public void isPalindromeTest() {
-        assertEquals(expected, app.isPalindrome(input1));       
+        assertEquals(expected, app.isPalindrome(input1));  
+    }
+    
      @Test
     public void isNotPalindromeTest() {
         assertEquals(false, app.isPalindrome(abc));       
     }
+    
 }
+
