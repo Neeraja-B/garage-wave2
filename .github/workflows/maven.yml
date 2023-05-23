@@ -22,4 +22,6 @@ jobs:
       mvn test
    - name: packaging the maven code into jar file
      run: mvn package
+   - name: Maven Sonar Code Quality Check
+     run: mvn sonar:sonar -Dsonar.host.url=http://34.131.138.41:9000 -Dsonar.login=${{secrets.SONAR_TOKEN}}
 
