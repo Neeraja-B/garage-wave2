@@ -1,4 +1,4 @@
-<project>
+ <project>
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>com.example</groupId>
@@ -38,7 +38,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>Basics</mainClass>
+              <mainClass>App</mainClass>
             </manifest>
           </archive>
         </configuration>
