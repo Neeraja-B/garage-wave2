@@ -15,7 +15,7 @@ public class AppTest {
     
      @Test
     public void isNotPalindromeTest() {
-        assertEquals(false, app.isPalindrome(abc));       
+        assertEquals(false, app.isPalindrome("abc"));       
     }
     
 }
