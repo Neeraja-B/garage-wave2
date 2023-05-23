@@ -2,7 +2,7 @@
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-public class TestDemoClass {
+public class AppTest {
     
     String input1= "noon";
     App app = new App();
